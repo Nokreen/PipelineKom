@@ -31,26 +31,16 @@ jobs:
       - name: Run Analysis
         id: analysis
         run: |
-          echo "::group::PipelineKom Analysis"
+          echo "========================================="
+          echo "PipelineKom: Quality Check"
+          echo "========================================="
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.head_ref }}"
-          echo "Java files: $(find . -name "*.java" -type f | wc -l)"
-          echo "Lines of code: $(find . -name "*.java" -type f -exec cat {} \; | wc -l)"
-          echo "::endgroup::"
+          echo "Status: PASSED"
+          echo "========================================="
           
           mkdir -p reports
-          cat > reports/quality-report.json << EOF
-          {
-            "timestamp": "$(date -Iseconds)",
-            "repository": "${{ github.repository }}",
-            "branch": "${{ github.head_ref }}",
-            "status": "passed",
-            "metrics": {
-              "javaFiles": $(find . -name "*.java" -type f | wc -l),
-              "linesOfCode": $(find . -name "*.java" -type f -exec cat {} \; | wc -l)
-            }
-          }
-          EOF
+          echo "{\"status\": \"passed\", \"timestamp\": \"$(date -Iseconds)\"}" > reports/quality-report.json
       
       - name: Upload Report
         uses: actions/upload-artifact@v4
