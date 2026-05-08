@@ -53,4 +53,5 @@ PipelineKom/
 точка 2
 точка 3
 точка 4
-jhg
+jhgjhgfc
+kjh
