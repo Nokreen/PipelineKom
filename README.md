@@ -55,3 +55,4 @@ PipelineKom/
 точка 4
 jhgjhgfc
 kjh
+dsadsadasdasd
