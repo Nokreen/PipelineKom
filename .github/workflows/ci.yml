@@ -1,5 +1,4 @@
-name: CI Pipeline
-
+name: PipelineKom CI/CD
 on:
   pull_request:
     branches:
